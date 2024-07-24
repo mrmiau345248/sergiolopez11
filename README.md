@@ -11,7 +11,7 @@ alt="mrmiau345248" /> </p>
 
 - 🔭 I’m currently working on **MyPlace**
 
-- 🌱 I’m currently learning **ISC2 cyber security certification, Cython, Linux environment**
+- 🌱 I’m currently learning **ISC2 cyber security certification, Cython and Linux environment**
 
 - 👯 I’m looking to collaborate on **Cyber secuurity analysis projects**
 

@@ -9,7 +9,7 @@ alt="mrmiau345248" /> </p>
 
 <p align="left"> <a href="https://twitter.com/sergio_342" target="blank"><img src="https://img.shields.io/twitter/follow/sergio_342?logo=twitter&style=for-the-badge" alt="sergio_342" /></a> </p>
 
-- 🔭 I’m currently working on **MyPlace**
+- 🔭 I’m currently working on **Engineering Systems College Degree**
 
 - 🌱 I’m currently learning **ISC2 cyber security certification, Cython and Linux environment**
 

@@ -36,7 +36,7 @@ struct materia* buscarMateria(char *nombre) {
     }
     return NULL;
 }
-/*
+/* 
 void carreraDeBuses() {
     int pos = 0;
     int max_pos = 10;

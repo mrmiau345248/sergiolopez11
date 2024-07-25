@@ -1,26 +1,27 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 struct persona {
-    char nombre[50];
+    char nombre[100];
     char apellido[60];
-    char carrera[50];
-    char semestre[50];
+    char carrera[100];
+    char semestre[100];
     char exp[1500];
 };
 
 struct materia {
-    char nombre[60];
+    char nombre[100];
     int creditos;
-    char salon[60];
+    char salon[100];
 };
 struct materia materias[] = {
-    {"Estructuras de Datos", 3, "Ingenieria: 106"},
-    {"Sistemas de Informacion", 3, "Baron: 608"},
+    {"Estructuras de datos", 3, "Ingenieria: 106"},
+    {"Sistemas de informacion", 3, "Baron: 608"},
     {"Sistemas Operativos", 3, "Baron: 002"},
     {"Hoja de calculo", 2, "Baron: s101"},
-    {"Fundamentos de Software", 3, "Ingenieria: 96C"},
+    {"Fundamentos de software", 3, "Ingenieria: 96C"},
     {"Etica", 2, "Baron: 403"},
     {"Probabilidad", 3, "Baron: 503"}
 };
@@ -35,7 +36,35 @@ struct materia* buscarMateria(char *nombre) {
     }
     return NULL;
 }
+/*
+void carreraDeBuses() {
+    int pos = 0;
+    int max_pos = 10;
+    while(pos <= max_pos) {
 
+        printf("\033[H\033[J");
+
+        for(int i = 0; i < pos; i++) {
+            printf(" ");
+        }
+
+        printf("  ----\n");
+        for(int i = 0; i < pos; i++) {
+            printf(" ");
+        }
+        printf(" /--|\\\n");
+        for(int i = 0; i < pos; i++) {
+            printf(" ");
+        }
+        printf("O----O\n");
+
+        pos++;
+
+        usleep(200000); // Pausa de 200 milisegundos
+    }
+
+}
+*/
 struct persona p1 = {"Sergio","Lopez",  "Ingenieria de Sistemas", "Tercer Semestre",
     "\n\tTengo experiencia en back end y front end de desarrollo de proyecto de RenCar, aplicacion usada para la gestion "
     "\tde automoviles y servicio de parqueadero. Desarrolle dos proyecto de redes y telocomucaciones de manera\n "
@@ -53,81 +82,125 @@ struct persona p1 = {"Sergio","Lopez",  "Ingenieria de Sistemas", "Tercer Semest
 int main(int argc, char *argv[]) {
     int valor;
     int* opcion=&valor;
+    char repetir = 0;
+
     printf("Miauuuuuu %d\n ", *opcion);
 
+    do{
+        printf("Ingrese la opcion que desea escoger\n"
+               "\t1. Para nombre y carrera.\n"
+               "\t2.Para nombre y experiencia.\n"
+               "\t3.Para nombre.\n"
+               "\t4.Para buscar materia.\n"
+               "\t5.Para nombre y carrera de buses.\n");
+        scanf("%d",opcion);
+        switch (*opcion) {
+            case 1:
+                const char *presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
+                                           "\tNOMBRE: \t%s\n"
+                                           "\tAPELLIDO:\t%s\n"
+                                           "\tCARRERA: \t%s\n"
+                                           "\tSEMESTRE: \t%s\n"
+                                           "\t<---------------------------MATERIAS--------------------------->\n";
+            printf("+");
+            for (int i = 0; i < 80; i++) {
+                printf("-");
+            }
+            printf("+\n");
 
-    printf("Ingrese la opcion que desea escoger\n"
-           "\t1. Para nombre y carrera.\n"
-           "\t2.Para nombre y experiencia.\n"
-           "\t3.Para nombre.\n"
-           "\t4.Para buscar materia.\n"
-           "\t5.Para nombre y carrera de buses.\n");
-    scanf("%d",opcion);
-    switch (*opcion){
-        case 1:
-        const char *presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
-                                   "\tNOMBRE: \t%s\n"
-                                   "\tAPELLIDO:\t%s\n"
-                                   "\tCARRERA: \t%s\n"
-                                   "\tSEMESTRE: \t%s\n"
-                                   "\t<---------------------------MATERIAS--------------------------->\n";
-        printf("+");
-        for (int i = 0; i < 80; i++) {
-            printf("-");
-        }
-        printf("+\n");
+            printf(presentacion, p1.nombre,p1.apellido, p1.carrera, p1.semestre);
 
-        printf("| ");
-        printf(presentacion, p1.nombre,p1.apellido, p1.carrera, p1.semestre);
+            for (int i = 0; i < 7; i++) {
+                printf("\t%s, \t%d creditos, en \t%s\n", materias[i].nombre, materias[i].creditos, materias[i].salon);
+            }
 
-        for (int i = 0; i < 7; i++) {
-            printf("\t%s, \t%d creditos, en \t%s\n", materias[i].nombre, materias[i].creditos, materias[i].salon);
-        }
-
-        printf(" |\n");
-        printf("+");
-        for (int i = 0; i < 80; i++) {
-            printf("-");
-        }
-        printf("+\n");
+            printf("\n");
+            printf("+");
+            for (int i = 0; i < 80; i++) {
+                printf("-");
+            }
+            printf("+\n");
 
 
             break;
-        case 2:
-            presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
-                                  "\tNOMBRE: \t%s\n"
-                                  "\tAPELLIDO:\t%s\n"
-                                  "%s";
+            case 2:
+                printf("\t+");
+            for (int i = 0; i < 110; i++) {
+                printf("-");
+            }
+            printf("+\n");
+                presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
+                                      "\tNOMBRE: \t%s\n"
+                                      "\tAPELLIDO:\t%s\n"
+                                      "%s";
             printf(presentacion,p1.nombre,p1.apellido, p1.exp);
-
+            printf("\t+");
+            for (int i = 0; i < 110; i++) {
+                printf("-");
+            }
+            printf("+\n");
 
             break;
-        case 3:
+            case 3:
 
-
-            presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
-                                             "\tNOMBRE: \t%s\n"
-                                             "\tAPELLIDO:\t%s\n";
-        printf(presentacion,p1.nombre,p1.apellido);
-        break;
-        case 4:
-             char valor[50];
-             char* miau=valor;
-        printf("Ingrese la materia a encontrar: -> ");
-            scanf("%s",miau);
-        if(buscarMateria(miau)!=NULL) {
-            printf("\tLa materia solicitada es:\n"
-                   "\tNOMBRE: %s\n"
-                   "\tCREDITOS: %d\n"
-                   "\tSALON: %s\n",buscarMateria(miau)->nombre,buscarMateria(miau)->creditos,buscarMateria(miau)->salon);
-        }else {
-            printf("Materia no encontrada\n");
+                printf("+");
+            for (int i = 0; i < 80; i++) {
+                printf("-");
+            }
+            printf("+\n");
+                presentacion = "\t\t!!!!!!!!!!!!!!!PRESENTACION!!!!!!!!!!!!!!!\n"
+                                                 "\tNOMBRE: \t%s\n"
+                                                 "\tAPELLIDO:\t%s\n";
+            printf(presentacion,p1.nombre,p1.apellido);
+            printf("+");
+            for (int i = 0; i < 80; i++) {
+                printf("-");
+            }
+            printf("+\n");
+            break;
+            case 4:
+                char valor1[100];
+            char* miau=valor1;
+            printf("Ingrese la materia a encontrar: -> ");
+            scanf(" %[^\n]",miau);
+            if(buscarMateria(miau)!=NULL) {
+                printf("+");
+                for (int i = 0; i < 80; i++) {
+                    printf("-");
+                }
+                printf("+\n");
+                printf("\tLa materia solicitada es:\n"
+                       "\tNOMBRE: %s\n"
+                       "\tCREDITOS: %d\n"
+                       "\tSALON: %s\n",buscarMateria(miau)->nombre,buscarMateria(miau)->creditos,buscarMateria(miau)->salon);
+                printf("+");
+                for (int i = 0; i < 80; i++) {
+                    printf("-");
+                }
+                printf("+\n");
+            }else {
+                printf("Materia no encontrada\n");
+            }
+            break;
+           /* case 6:
+                carreraDeBuses();
+            break;*/
+            default:
+                printf("+");
+            for (int i = 0; i < 50; i++) {
+                printf("-");
+            }
+            printf("+\n");
+                printf("Selecciona una de las opciones validas :)");
+            printf("\n+");
+            for (int i = 0; i < 50; i++) {
+                printf("-");
+            }
+            printf("+\n");
         }
-            break;
-
-        default:
-
-            printf("Que putas esta metiendo cacorro hijo de perra");
-    };
+        printf("\n\tDesea realizar algun otro proceso? (Ss/Nn) \n");
+        scanf(" %c", &repetir);
+    }while  (repetir=='s'||repetir=='S');
     return 0;
+
 }

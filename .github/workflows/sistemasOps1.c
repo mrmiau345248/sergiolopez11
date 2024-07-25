@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
                "\t2.Para nombre y experiencia.\n"
                "\t3.Para nombre.\n"
                "\t4.Para buscar materia.\n"
-               "\t5.Para nombre y carrera de buses.\n");
+              /* "\t5.Para nombre y carrera de buses.\n")*/;
         scanf("%d",opcion);
         switch (*opcion) {
             case 1:

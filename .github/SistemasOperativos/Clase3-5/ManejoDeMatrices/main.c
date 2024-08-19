@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "funciones.h"
+
+
+
 int main(int argc, char *argv[]) {
     if (argc != 2) { // Debe haber un argumento para el tamaño de la matriz
         fprintf(stderr, "Uso: %s <Tamaño>\n", argv[0]);

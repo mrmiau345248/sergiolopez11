@@ -1,0 +1,2 @@
+El proyecto debe ser compilado haciendo uso de gcc o si se requiere con el comando literal(lo puede copiar y pegar): "gcc *.c -o main".
+Despues de esto le sera requerido ejectuar el archivo de la forma "./main 6 archivo00.txt 5 archivo01.txt" para obtener el resultado esperado en la evaluacion.
